@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eff</title>
+</head>
+<body>
+    <label for="inp">input MAX 100: </label>
+    <input type="number" class="inp" id="inp">
+    <button id="btn">enter</button>
+
+    <div style="display: flex;">
+        <ul id="gj">
+            <span>ganjil</span>
+        </ul>
+        <ul id="gn">
+            <span>genap</span>
+        </ul>
+        <ul id="fib">
+            <span>fibonacci</span>
+        </ul>
+    </div>
+    <script>
+        const btn = document.getElementById('btn')
+        const gj = document.getElementById('gj')
+        const gn = document.getElementById('gn')
+
+        btn.addEventListener('click', function() {
+            const inp = document.getElementById('inp').value
+            if (inp < 1 || inp > 100){
+                alert("MAX 100")
+                return
+            }
+            for (let i = 1; i <= inp ; i++){
+                if (i % 2 == 1){
+                    gj.innerHTML += `<li>${i}</li>`
+
+                }else {
+                    gn.innerHTML += `<li>${i}</li>`
+                }
+            }
+
+            let i = 0, j = 1, k = 0 ;
+            let fib = document.getElementById('fib')
+            while(k <= inp) {
+                fib.innerHTML += `<li>${k}</li>`
+                i = j
+                j = k
+                k = i + j
+            }
+        })
+    </script>
+</body>
+</html>
